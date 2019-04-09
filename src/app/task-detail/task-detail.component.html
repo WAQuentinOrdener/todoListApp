@@ -1,3 +1,7 @@
-<p>
-  task-detail works!
-</p>
+<div class="container py-3">
+  <a [routerLink]="['/tasks']">Back</a>
+  <div class="card card-block mt-3">
+    <div class="card-title p-2">{{ task.title }}</div>
+    <div class="card-body">{{ task.description }}</div>
+  </div>
+</div>

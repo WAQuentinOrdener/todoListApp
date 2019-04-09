@@ -1,0 +1,27 @@
+<div class="card card-block flex-grow-1 mb-3">
+  <div class="d-flex">
+    <div [ngSwitch]="task.state" class="d-flex flex-grow-1">
+      <div *ngSwitchCase="true">
+        <s>
+          <h4 class="card-title px-2">
+            <a routerLink="/task-detail/{{ task.id }}">{{ task.title }}</a>
+          </h4>
+        </s>
+      </div>
+      <div *ngSwitchCase="false">
+        <h4 class="card-title px-2">
+          <a routerLink="/task-detail/{{ task.id }}">{{ task.title }}</a>
+        </h4>
+      </div>
+    </div>
+
+    <button
+      class="btn"
+      [class.btn-success]="!task.state"
+      [class.btn-danger]="task.state"
+      (click)="checkTask($event)"
+    >
+      {{ task.state ? 'Done' : 'Todo' }}
+    </button>
+  </div>
+</div>

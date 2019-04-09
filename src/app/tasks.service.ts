@@ -17,4 +17,10 @@ export class TasksService {
       observer.next(tasks);
     });
   }
+
+  getTask(id: number): Observable<Task> {
+    return Observable.create(observer => {
+      observer.next(tasks.find(task => task.id === id));
+    });
+  }
 }

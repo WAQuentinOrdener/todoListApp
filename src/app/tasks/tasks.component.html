@@ -1,18 +1,6 @@
-<div class="card card-block flex-grow-1 mb-3">
-  <div class="d-flex">
-    <div [ngSwitch]="task.state" class="d-flex flex-grow-1">
-      <div *ngSwitchCase="true">
-        <s
-          ><h4 class="card-title px-2">{{ task.title }}</h4></s
-        >
-      </div>
-      <div *ngSwitchCase="false">
-        <h4 class="card-title px-2">{{ task.title }}</h4>
-      </div>
-    </div>
-
-    <button class="btn btn-primary" (click)="checkTask($event)">
-      {{ task.state ? 'Done' : 'Todo' }}
-    </button>
+<div class="container">
+  <h3>Todo list</h3>
+  <div class="row" *ngFor="let task of tasks">
+    <app-task [task]="task" (sortTasks)="sortTasks(tasks)" class="d-flex flex-grow-1"></app-task>
   </div>
 </div>
