@@ -8,10 +8,11 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TasksService } from './tasks.service';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { TaskComponent } from './tasks/task/task.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, TasksComponent, TaskDetailComponent, TaskComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [TasksService],
   bootstrap: [AppComponent]
 })

@@ -3,4 +3,28 @@
   <div class="row" *ngFor="let task of tasks">
     <app-task [task]="task" (sortTasks)="sortTasks(tasks)" class="d-flex flex-grow-1"></app-task>
   </div>
+  <hr />
+  <button (click)="openForm = !openForm" class="btn btn-primary">Add new Task</button>
+  <form
+    *ngIf="openForm"
+    [formGroup]="addTaskForm"
+    class="form-group d-flex flex-column align-items-center"
+    (ngSubmit)="saveNewTask()"
+  >
+    <label class="col-12 col-sm-6 px-0">
+      Title :
+      <input class="form-control" type="text" required formControlName="title" />
+    </label>
+    <label class="col-12 col-sm-6 px-0">
+      Description :
+      <input class="form-control" type="text" formControlName="description" />
+    </label>
+    <button
+      type="submit"
+      class="btn btn-primary col-12 col-sm-6 mt-2"
+      [disabled]="!addTaskForm.valid"
+    >
+      Submit
+    </button>
+  </form>
 </div>

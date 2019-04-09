@@ -1,4 +1,10 @@
 export class Task {
+  constructor(id: number, title: string, description: string) {
+    this.id = id;
+    this.title = title;
+    this.description = description;
+    this.state = false;
+  }
   id: number;
   title: string;
   description: string;
